@@ -1,0 +1,11 @@
+Model Information:
+* title:	coffee bag
+* source:	https://sketchfab.com/3d-models/coffee-bag-20de10e33c8a406fb6c232c9711b6849
+* author:	hectopod (https://sketchfab.com/hectopod)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "coffee bag" (https://sketchfab.com/3d-models/coffee-bag-20de10e33c8a406fb6c232c9711b6849) by hectopod (https://sketchfab.com/hectopod) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
