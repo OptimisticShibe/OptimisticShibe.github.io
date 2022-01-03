@@ -31,14 +31,14 @@ scene.add(ambientLight, latteLight, lightHelper, coffeeTableCatLight);
 
 setBackground();
 // Load models, textures
-const { coffeeMachine, coffeeCup, coffeeBean, coffeeBeanLight } = await loadCoffee();
+const { mokaPot, coffeeCup, coffeeBean, coffeeBeanLight } = await loadCoffee();
 const { ristretto } = await loadProfilePic();
 
 // Movement here
 coffeeBeanStarfield(coffeeBean, 200, 1.5);
 coffeeBeanStarfield(coffeeBeanLight, 0.3, 0.01);
 // const ristrettoBox = await mapCube(ristretto);
-scene.add(coffeeMachine, coffeeCup);
+scene.add(mokaPot, coffeeCup);
 // ristrettoBox.position.set(2, 0, -10);
 
 function render() {
@@ -71,7 +71,7 @@ function moveCamera() {
   // ristrettoBox.rotation.y += 0.01;
   // ristrettoBox.rotation.z += 0.01;
 
-  coffeeMachine.rotation.z += 0.03;
+  mokaPot.rotation.z += 0.03;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;

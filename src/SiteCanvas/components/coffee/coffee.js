@@ -5,18 +5,18 @@ import { setupModel } from "./setupModel.js";
 async function loadCoffee() {
   const loader = new GLTFLoader();
 
-  const [coffeeMachineData, coffeeCupData, coffeeBeanData, coffeeBeanLightData] = await Promise.all([
-    loader.loadAsync("/assets/coffee_machine/scene.gltf"),
+  const [mokaPotData, coffeeCupData, coffeeBeanData, coffeeBeanLightData] = await Promise.all([
+    loader.loadAsync("/assets/moka_pot/scene.gltf"),
     loader.loadAsync("/assets/coffee_cup_with_plate/scene.gltf"),
     loader.loadAsync("/assets/coffee_bean_low-poly/scene.gltf"),
     loader.loadAsync("/assets/coffee_bean/scene.gltf"),
   ]);
 
-  const coffeeMachine = setupModel(coffeeMachineData);
-  let cmxyz = 0.04;
-  coffeeMachine.position.set(-10, 0, 30);
-  coffeeMachine.rotation.set(-1.2, 0.2, 0);
-  coffeeMachine.scale.set(cmxyz, cmxyz, cmxyz);
+  const mokaPot = setupModel(mokaPotData);
+  let mpxyz = 1;
+  mokaPot.position.set(-10, 0, 30);
+  mokaPot.rotation.set(-1.2, 0.2, 0);
+  mokaPot.scale.set(mpxyz, mpxyz, mpxyz);
 
   const coffeeCup = setupModel(coffeeCupData);
   let ccxyz = 120;
@@ -29,7 +29,7 @@ async function loadCoffee() {
 
   const coffeeBeanLight = setupModel(coffeeBeanLightData);
 
-  return { coffeeMachine, coffeeCup, coffeeBean, coffeeBeanLight };
+  return { mokaPot, coffeeCup, coffeeBean, coffeeBeanLight };
 }
 
 export { loadCoffee };

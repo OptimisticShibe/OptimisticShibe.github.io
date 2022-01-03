@@ -10,7 +10,7 @@ async function createLights() {
   const latteLight = new PointLight("white", 30);
   latteLight.position.set(30,30,-40);
   const lightHelper = new PointLightHelper(latteLight);
-  const coffeeTableCatLight = new PointLight("white", 20);
+  const coffeeTableCatLight = new PointLight("white", 5);
   coffeeTableCatLight.position.set(-5, 5, 30);
   // mainLight.position.set(10, 10, 10);
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Moka_pot
+* source:	https://sketchfab.com/3d-models/moka-pot-2ca52d750d95471a953fb2c9eb577da6
+* author:	mnemonich (https://sketchfab.com/mnemonich)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Moka_pot" (https://sketchfab.com/3d-models/moka-pot-2ca52d750d95471a953fb2c9eb577da6) by mnemonich (https://sketchfab.com/mnemonich) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
