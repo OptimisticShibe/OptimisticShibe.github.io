@@ -9,6 +9,8 @@ import { Resizer } from "./systems/Resizer.js";
 import { Loop } from "./systems/Loop.js";
 
 import { MathUtils, TextureLoader } from "three";
+import { loadProfilePic } from "./components/profilePic/profilePic.js";
+import { mapCube } from "./components/profilePic/objectMapping.js";
 
 let camera;
 let controls;
@@ -17,37 +19,27 @@ let scene;
 let loop;
 
 // TODO: spinner etc. while shit loads
-// async function init() {
 camera = createCamera();
 renderer = createRenderer();
-// camera.position.setZ(30);
-// camera.position.setX(-3);
 scene = createScene();
 loop = new Loop(camera, scene, renderer);
-// container.append(renderer.domElement);
 controls = createControls(camera, renderer.domElement);
 
-const { ambientLight, mainLight } = createLights();
+const { ambientLight, latteLight, lightHelper, coffeeTableCatLight } = await createLights();
 
-// loop.updateables.push(controls);
-scene.add(ambientLight, mainLight);
-
-// const resizer = new Resizer(container, camera, renderer);
+scene.add(ambientLight, latteLight, lightHelper, coffeeTableCatLight);
 
 setBackground();
-const { coffeeBag, coffeeCupLate, coffeeBean, coffeeBeanLight } = await loadCoffee();
-
-console.log(coffeeCupLate);
+// Load models, textures
+const { coffeeMachine, coffeeCup, coffeeBean, coffeeBeanLight } = await loadCoffee();
+const { ristretto } = await loadProfilePic();
 
 // Movement here
-controls.target.copy(coffeeCupLate.position);
-loop.updatables.push(coffeeCupLate);
 coffeeBeanStarfield(coffeeBean, 200, 1.5);
 coffeeBeanStarfield(coffeeBeanLight, 0.3, 0.01);
-// Array(200).fill().forEach(this.coffeeBeanStarfield(coffeeBean));
-scene.add(coffeeBag, coffeeCupLate);
-// document.body.onscroll = this.moveCamera(coffeeBag);
-// }
+// const ristrettoBox = await mapCube(ristretto);
+scene.add(coffeeMachine, coffeeCup);
+// ristrettoBox.position.set(2, 0, -10);
 
 function render() {
   renderer.render(scene, camera);
@@ -70,21 +62,29 @@ function coffeeBeanStarfield(coffeeBean, scale, scaleModifier) {
     let adj = Math.abs(w);
     newBean.scale.set(scale - adj * scaleModifier, scale - adj * scaleModifier, scale - adj * scaleModifier);
     scene.add(newBean);
-    // console.log(newBean);
   }
 }
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  coffeeBag.rotation.x += 0.05;
-  coffeeBag.rotation.y += 0.075;
-  coffeeBag.rotation.z += 0.05;
+
+  // ristrettoBox.rotation.y += 0.01;
+  // ristrettoBox.rotation.z += 0.01;
+
+  coffeeMachine.rotation.z += 0.03;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
 }
 
+function animate() {
+  requestAnimationFrame(animate);
+
+  coffeeCup.rotation.z += 0.003;
+}
+
+// TODO: funky wave-plane bg?
 function setBackground() {
   const bgGradient = new TextureLoader().load("/assets/background.jpeg");
   scene.background = bgGradient;
@@ -93,6 +93,7 @@ function setBackground() {
 start();
 document.body.onscroll = moveCamera;
 moveCamera();
+animate();
 
 // const scene = new THREE.Scene();
 
